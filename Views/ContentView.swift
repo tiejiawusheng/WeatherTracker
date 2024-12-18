@@ -66,7 +66,23 @@ struct ContentView: View {
                     .padding()
                 }
             } else {
-                Spacer() // Empty state
+                ZStack {
+                    Color(.systemBackground)
+                        .edgesIgnoringSafeArea(.all)
+
+                    VStack(spacing: 8) {
+                        Text("No City Selected")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+
+                        Text("Please Search For A City")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                    .multilineTextAlignment(.center)
+                    .padding()
+                }
             }
         }
         .onAppear {
